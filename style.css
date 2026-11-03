@@ -1,6 +1,7 @@
 body{
-    transform: rotate(-2deg);
-    align-items: start;
+    transform: rotate(-1deg);
+    overflow-x: hidden;
+    align-items: flex-start;
 }
 
 a{
@@ -105,30 +106,49 @@ a{
 
 /* Правила применятся только если ширина экрана 768px или меньше */
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Чтобы из-за поворота на 2 градуса страница не скроллилась вбок */
+    }
+
     .grid-container {
-        grid-template-columns: 1fr; /* Меняем сетку на 1 столбец */
+        grid-template-columns: 1fr; /* Строго 1 столбец */
+        gap: 12px;
+        padding: 15px; /* Отступы от краев экрана телефона */
+        margin: 10px auto;
     }
 
-    .title {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    /* Ссылки выстраиваются друг под другом во 2, 3 и 4 строках */
+    .title  { grid-column: 1; grid-row: 1; text-align: left; }
     .link-1 { grid-column: 1; grid-row: 2; }
     .link-2 { grid-column: 1; grid-row: 3; }
     .link-3 { grid-column: 1; grid-row: 4; }
 
-    /* Общая зона для превью перепрыгивает ПОД все ссылки */
+    /* Чтобы длинные ссылки не вылезали за экран */
+    .url {
+        word-break: break-all;
+        font-size: 15px;
+    }
+
+    /* Зона превью между ссылками и портретом */
     .preview-zone {
         grid-column: 1;
         grid-row: 5;
-        min-height: 250px; /* Немного уменьшаем высоту для мобильных экранов */
+        height: 0px; /* Изначально схлопнута, чтобы не было пустой дыры */
+        min-height: 0;
+        overflow: hidden; /* Жестко запрещает картинкам вылезать на ссылки и портрет */
+        transition: height 0.3s ease;
     }
 
-    /* Фото профиля уезжает в самый низ */
+    /* Когда нажимают на ссылку, зона аккуратно раздвигается на 260px */
+    .grid-container:has(.project-link:hover) .preview-zone,
+    .grid-container:has(.project-link:active) .preview-zone {
+        height: 260px;
+        margin: 10px 0;
+    }
+
     .portrait {
         grid-column: 1;
         grid-row: 6;
+        justify-self: start; /* Оставляем выравнивание слева, как на твоем скриншоте */
+        margin-top: 10px;
     }
 }
