@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>danyawhtr - ai slop</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <main>
-        <h1>My slops:</h1>
-        <a href="https://github.com/whtr9/handycam-converter">mpg, mts, m2ts into mp4 offline converter</a>
-        <a href="https://github.com/whtr9/mokaLab">making coffee with mokas</a>
-        <a href="https://github.com/whtr9/nonds">nintendo ds web emulator</a>
-        <a>all sites are aviable to be downloaded</a>
+    <main class="grid-container">
+        <!-- 1 строка (на оба столбца) -->
+        <h1 class="title">My slops:</h1>
+        
+        <!-- 2, 3, 4 строки (1 столбец) -->
+        <a href="https://github.com/whtr9/handycam-converter" class="project-link link-1">
+            <span class="url">https://github.com/whtr9/handycam-converter</span>
+            <span class="desc">mpg, mts, m2ts into mp4 offline converter</span>
+        </a>
+        
+        <a href="https://github.com/whtr9/mokaLab" class="project-link link-2">
+            <span class="url">https://github.com/whtr9/mokaLab</span>
+            <span class="desc">making coffee with mokas</span>
+        </a>
+        
+        <a href="https://github.com/whtr9/nonds" class="project-link link-3">
+            <span class="url">https://github.com/whtr9/nonds</span>
+            <span class="desc">nintendo ds web emulator</span>
+        </a>
+        
+        <!-- Общая зона для картинок (2 столбец, занимает 3 строки) -->
+        <div class="preview-zone">
+            <img src="images/converter.jpg" alt="converter screenshot" class="preview-img img-1">
+            <img src="images/moka.jpg" alt="moka screenshot" class="preview-img img-2">
+            <img src="images/emu.jpg" alt="emulator screenshot" class="preview-img img-3">
+        </div>
+
+        <!-- 5 строка (на оба столбца) -->
+        <img src="images/myphoto.JPG" class="portrait" alt="my portrait">
     </main>
 </body>
-
 </html>
