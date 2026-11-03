@@ -133,7 +133,7 @@ a{
         grid-column: 1;
         grid-row: 5;
         height: 0px; /* Изначально схлопнута, чтобы не было пустой дыры */
-        min-height: 0;
+        min-height: 360px;
         overflow: hidden; /* Жестко запрещает картинкам вылезать на ссылки и портрет */
         transition: height 0.3s ease;
     }
